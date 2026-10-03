@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://charity-scope-marriage-sense.trycloudflare.com/ -->
+<html lang="zh-Hant"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module" src="./Pixel Knight_files/client"></script>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>Pixel Knight</title>
+    <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'&gt;&lt;rect width='16' height='16' fill='%233d8b4a'/&gt;&lt;rect x='4' y='3' width='8' height='10' fill='%233a6ea5'/&gt;&lt;/svg&gt;">
+  <style type="text/css" data-vite-dev-id="/workspace/src/style.css">:root {
+  --bg: #eef1f4;
+  --card: #ffffff;
+  --ink: #1c2430;
+  --muted: #5b6777;
+  --line: #d5dbe3;
+  --accent: #2f6fed;
+  --accent-dark: #1f54c0;
+  --ok: #1f8a4c;
+  --danger: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family:
+    'Segoe UI',
+    system-ui,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+#app {
+  width: min(1100px, 98vw);
+  display: grid;
+  gap: 12px;
+  position: relative;
+}
+
+.title-screen {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(20, 30, 40, 0.08);
+  padding: 28px 24px;
+}
+
+.title-card {
+  width: min(440px, 100%);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.title-kicker {
+  display: none;
+}
+
+.title-brand {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.title-tag {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.name-field {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.name-field span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.name-field input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  padding: 10px 12px;
+  outline: none;
+}
+
+.name-field input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.15);
+}
+
+.title-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.play-btn,
+.ghost-btn,
+.join-btn {
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.play-btn {
+  width: 100%;
+  border: 1px solid var(--accent-dark);
+  background: var(--accent);
+  color: #fff;
+  font-size: 15px;
+  padding: 11px 12px;
+}
+
+.ghost-btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font-size: 13px;
+  padding: 11px 14px;
+}
+
+.play-btn:hover,
+.ghost-btn:hover,
+.join-btn:hover {
+  filter: brightness(0.97);
+}
+
+.play-btn:disabled,
+.ghost-btn:disabled,
+.join-btn:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.lobby-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 12px;
+}
+
+.lobby-heading {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.lobby-list {
+  display: grid;
+  gap: 8px;
+  min-height: 40px;
+}
+
+.lobby-empty {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.lobby-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.join-btn {
+  border: 1px solid var(--accent-dark);
+  background: #eaf1ff;
+  color: var(--accent-dark);
+  font-size: 13px;
+  padding: 8px 12px;
+}
+
+.build-stamp {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: #8a8a8a;
+}
+
+.title-status {
+  min-height: 20px;
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #8a5a00;
+}
+
+.color-legend {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.color-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  display: inline-block;
+}
+
+.swatch.blue {
+  background: #2d7fd4;
+}
+.swatch.red {
+  background: #d43d3d;
+}
+.swatch.green {
+  background: #3db85a;
+}
+.swatch.yellow {
+  background: #d4b02d;
+}
+.swatch.purple {
+  background: #8a3dd4;
+}
+
+#game {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  height: auto;
+  justify-self: center;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #000;
+}
+
+.hud {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.hud-top h1 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.hud-top p,
+.controls {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.controls {
+  margin-top: 10px;
+}
+
+.roster {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.roster-row {
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.roster-row.dead {
+  opacity: 0.45;
+}
+
+.hp-bar {
+  height: 8px;
+  background: #e8edf3;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.hp-fill {
+  height: 100%;
+  background: var(--ok);
+}
+
+.banner {
+  position: absolute;
+  left: 50%;
+  top: 16%;
+  transform: translateX(-50%);
+  background: rgba(28, 36, 48, 0.92);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  pointer-events: none;
+  z-index: 5;
+}
+
+@media (max-width: 640px) {
+  .title-brand {
+    font-size: 22px;
+  }
+}
+</style></head>
+  <body>
+    <div id="app">
+      <div id="title-screen" class="title-screen">
+        <div class="title-card">
+          <h1 class="title-brand">Pixel Knight</h1>
+          <p class="title-tag">Enter your name, then create a lobby or join one that is already open.</p>
+          <p id="build-stamp" class="build-stamp">build v8-1791012450106</p>
+          <label class="name-field">
+            <span>Name</span>
+            <input id="name-input" type="text" maxlength="16" placeholder="Knight" autocomplete="off">
+          </label>
+          <div class="title-actions">
+            <button id="create-btn" type="button" class="play-btn">Create lobby</button>
+            <button id="refresh-btn" type="button" class="ghost-btn">Refresh</button>
+          </div>
+          <div class="lobby-panel">
+            <p class="lobby-heading">Open lobbies</p>
+            <div id="lobby-list" class="lobby-list"><div class="lobby-row"><span>MUUG · host mmhub · 1/5</span><button type="button" class="join-btn">Join</button></div></div>
+          </div>
+          <p id="title-status" class="title-status"></p>
+          <ul class="color-legend">
+            <li><i class="swatch blue"></i>1st — Blue</li>
+            <li><i class="swatch red"></i>2nd — Red</li>
+            <li><i class="swatch green"></i>3rd — Green</li>
+            <li><i class="swatch yellow"></i>4th — Yellow</li>
+            <li><i class="swatch purple"></i>5th — Purple</li>
+          </ul>
+        </div>
+      </div>
+
+      <canvas id="game" width="1024" height="704" aria-label="Pixel knight arena" hidden=""></canvas>
+      <aside class="hud" id="hud" hidden="">
+        <div class="hud-top">
+          <h1>Pixel Knight</h1>
+          <p id="match-line">Waiting for players…</p>
+        </div>
+        <div id="roster" class="roster"></div>
+        <p class="controls">
+          A/D move · Space jump · Shift dash · Click slash (1 dmg) · 25 HP
+        </p>
+      </aside>
+      <div id="banner" class="banner" hidden=""></div>
+    </div>
+    <script type="module" src="./Pixel Knight_files/main.ts"></script>
+  
+
+</body></html>
