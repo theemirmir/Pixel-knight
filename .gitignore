@@ -1,0 +1,16 @@
+# Dependencies and build output (if the original Vite project is recovered)
+node_modules/
+dist/
+
+# Local configuration and logs
+.env
+.env.*
+!.env.example
+*.log
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
